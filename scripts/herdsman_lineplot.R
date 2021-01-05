@@ -11,7 +11,7 @@ dl <- data.frame(x=c('2019/12/20','2019/09/15','2019/06/28','2019/04/29','2019/4
                  lab=c('Nephrectomy','Flu','Kidney Stones','Gastro','USA','Too hot','Flu','Vienna'),stringsAsFactors = FALSE)
 
 # label height position
-ypos <- 50
+ypos <- 50.0
 dl$y <- ypos + 0.1
 
 dl$x <- as.Date(dl$x)
@@ -19,7 +19,7 @@ str(dl)
 
 # X-axis limits
 xmin <- as.Date('2018-07-01')
-xmax <- as.Date('2020-07-01')
+xmax <- as.Date('2020-12-01')
 
 xpos <- as.Date('2019/04/01')
 
@@ -38,7 +38,8 @@ ggplot(d0) +
   ) +
   theme(plot.title = element_text(hjust = 0.5),
         plot.subtitle = element_text(hjust = 0.5),
-        plot.caption = element_text(hjust=1,face="italic")) +
+        plot.caption = element_text(hjust=1,face="italic"),
+        axis.text.x = element_text(angle=45,vjust=0.5)) +
   scale_x_date(breaks = function(x) seq.Date(from = xmin, 
                                              to = xmax, 
                                              by = "3 months"),
