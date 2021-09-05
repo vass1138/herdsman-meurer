@@ -11,15 +11,15 @@ dl <- data.frame(x=c('2019/12/20','2019/09/15','2019/06/28','2019/04/29','2019/4
                  lab=c('Nephrectomy','Flu','Kidney Stones','Gastro','USA','Too hot','Flu','Vienna'),stringsAsFactors = FALSE)
 
 # label height position
-ypos <- 50.0
-dl$y <- ypos + 0.1
+# ypos <- 50.0
+# dl$y <- ypos + 0.1
 
-dl$x <- as.Date(dl$x)
-str(dl)
+# dl$x <- as.Date(dl$x)
+# str(dl)
 
 # X-axis limits
 xmin <- as.Date('2018-07-01')
-xmax <- as.Date('2020-12-01')
+xmax <- as.Date('2021-12-01')
 
 xpos <- as.Date('2019/04/01')
 
@@ -27,8 +27,8 @@ ggplot(d0) +
   geom_line(aes(x=EventDate,y=ElapsedMinutes)) +
   geom_point(aes(x=EventDate,y=ElapsedMinutes)) +
   geom_smooth(aes(x=EventDate,y=ElapsedMinutes),span=0.5) +
-  geom_segment(data=dl,aes(x=x,xend=x,y=ypos-0.5,yend=ypos-2),arrow=arrow(type='closed',angle=10)) +
-  geom_text(data=dl,aes(x=x,y=y,label=lab),angle=45,hjust=0) +
+  # geom_segment(data=dl,aes(x=x,xend=x,y=ypos-0.5,yend=ypos-2),arrow=arrow(type='closed',angle=10)) +
+  # geom_text(data=dl,aes(x=x,y=y,label=lab),angle=45,hjust=0) +
   ylim(38,52.5) +
   labs(x='Date',
        y="Elapsed Minutes",
